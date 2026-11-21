@@ -1,4 +1,4 @@
-batton/config.h
+include/config.h
 *.hex
 *.bin
 *.elf

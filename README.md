@@ -8,10 +8,11 @@ to change behavior.
 
 ## Setup
 
-1. Copy `config.h.example` to `config.h`, fill in WiFi, the conductor URL, and
-   a token (`CUE_TOKEN` env on the conductor, or any paired display token).
-2. Map your pin(s) to cue ids in `INPUTS[]`.
-3. Flash with Arduino IDE (board: ESP32 Dev Module) or PlatformIO.
+1. Copy `include/config.h.example` to `include/config.h`, fill in WiFi, the
+   conductor URL, and a token (`CUE_TOKEN` env on the conductor, or any
+   paired display token).
+2. Map your pin(s) to cue ids in `INPUTS[]` (in `src/main.cpp`).
+3. Flash with PlatformIO: `pio run -t upload`, then `pio device monitor`
 4. On the conductor, create the mapping:
 
    ```

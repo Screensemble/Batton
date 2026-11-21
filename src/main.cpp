@@ -6,6 +6,7 @@
 // Build: Arduino IDE / PlatformIO, board "ESP32 Dev Module".
 // Fill in config.h before flashing.
 
+#include <Arduino.h>
 #include "config.h"
 #include <WiFi.h>
 #include <HTTPClient.h>
