@@ -8,17 +8,22 @@ server-side, so behavior changes never need a reflash.
 
 ## Setup
 
-1. Copy `include/config.h.example` → `include/config.h`, fill in WiFi.
-2. `pio run -t upload`, then `pio device monitor` — it prints the device IP.
-3. Open `http://<device-ip>/` — the Batton's setup page:
+1. `pio run -t upload` — nothing else needed at build time.
+2. The device starts an open AP **`Batton-XXXX`** with a captive portal
+   (the "sign in to network" popup — iOS/Android/Windows probes are all
+   handled). Connect, pick your WiFi, enter the password — it reboots
+   onto your network. If it ever loses WiFi for ~2 min it reopens the
+   setup AP on its own.
+3. Open `http://<device-ip>/` (serial monitor prints it):
    - Enter the conductor URL (`http://<conductor>:8090`)
    - Press **Pair** — then open the conductor's **Battons** page and authorize it
    - Map GPIO pins to input ids (`door`, `start-button`, …) and edge (LOW/HIGH)
 4. On the conductor, create an automation: **when** = this Batton's input,
    **then** = what the displays should do.
 
-Everything set in the web UI persists in flash — a reboot keeps URL, pairing
-token, and pin map.
+Everything set in the web UI persists in flash — a reboot keeps WiFi,
+conductor URL, pairing token, and pin map. `include/config.h.example`
+can pre-seed WiFi/URL for flash-and-forget deployments, but is optional.
 
 ## Firing
 

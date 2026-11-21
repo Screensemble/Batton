@@ -1,11 +1,12 @@
 #pragma once
 
-// WiFi credentials — the only build-time config still needed. Everything
-// else (conductor URL, pairing, pin mapping) is set in the web UI once
-// the device is on the network, and persists in flash.
-#define WIFI_SSID     "your-ssid"
-#define WIFI_PASS     "your-password"
+// Everything is configurable from the device's web page and persists in
+// flash — these are only OPTIONAL first-boot seeds. With no credentials
+// at all the device starts an open AP ("Batton-XXXX") with a captive
+// portal; connect, pick your network, done.
+#define WIFI_SSID   ""
+#define WIFI_PASS   ""
 
-// Optional: pre-fill the conductor URL in the setup page.
+// Optional: pre-fill the conductor URL / device name in the setup page.
 #define DEFAULT_SERVER_URL   ""
 #define DEFAULT_DEVICE_NAME  "Batton"
